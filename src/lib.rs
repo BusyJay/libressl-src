@@ -25,7 +25,10 @@ impl Build {
 
     pub fn build(&self) -> Artifacts {
         let src_dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("libressl");
-        let dst = cmake::build(format!("{}", src_dir.display()));
+        let dst = cmake::Config::new(src_dir)
+            .define("LIBRESSL_APPS", "OFF")
+            .define("LIBRESSL_TESTS", "OFF")
+            .build();
         Artifacts {
             include_dir: dst.join("include"),
             lib_dir: dst.join("lib"),
