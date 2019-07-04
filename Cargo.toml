@@ -1,6 +1,6 @@
 [package]
 name = "openssl-src"
-version = "111.2.1+1.1.1b"
+version = "111.3.0+1.1.1c"
 authors = ["Jay Lee <busyjaylee@gmail.com>"]
 edition = "2018"
 
